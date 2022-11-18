@@ -1,0 +1,15 @@
+.footer {
+  padding-top: 20px;
+}
+.footer a {
+  color: aliceblue;
+}
+@media all and (max-width: 630px) {
+  .footer__side {
+    flex-direction: column;
+    text-align: center;
+  }
+  .social__icons {
+    flex-direction: column;
+  }
+}

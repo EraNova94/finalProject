@@ -1,0 +1,41 @@
+#bg__video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media all and (max-width: 900px) {
+  .home__page-promo h2,
+  h3 {
+    font-size: 18px;
+  }
+  .for__kids h2,
+  h3 {
+    font-size: 18px;
+  }
+}
+@media all and (max-width: 600px) {
+  .home__page-promo {
+    flex-direction: column;
+  }
+
+  .home__page-promo h2,
+  h3 {
+    text-align: center;
+    font-size: 12px;
+  }
+  .for__kids {
+    flex-direction: column;
+  }
+  .for__kids h2,
+  p {
+    text-align: center;
+    font-size: 12px;
+  }
+}
