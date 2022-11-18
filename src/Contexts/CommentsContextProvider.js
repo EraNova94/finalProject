@@ -27,6 +27,7 @@ const CommentsContextProvider = ({ children }) => {
   async function addComment(obj) {
     try {
       const commentsRef = await addDoc(collection(db, "comments"), obj);
+      readComments();
       console.log(commentsRef);
     } catch (error) {
       console.error(error);

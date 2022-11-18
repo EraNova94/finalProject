@@ -43,7 +43,6 @@ const NavBar = () => {
               <Link to="comments" className="nav__link">
                 Reviews
               </Link>
-              <Link className="nav__link">FAQ</Link>
               {user.email ? (
                 <Link to="/" className="nav__acc">
                   {user.email}

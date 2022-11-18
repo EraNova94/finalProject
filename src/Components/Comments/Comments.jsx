@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import { commentContext } from "../../Contexts/CommentsContextProvider";
 import { authContext } from "../../Contexts/AuthContextProvider";
+import "./Comments.css";
 const Comments = () => {
   const { addComment, comments, readComments } = useContext(commentContext);
   // console.log(comments);
@@ -38,28 +39,37 @@ const Comments = () => {
             <h2>Please, leave some review for us.</h2>
             <h3>We'll do our best to make your viewing more pleasant!</h3>
           </Box>
-          <Grid display="flex" justifyContent="space-evenly">
-            <Box px="10px" width="40%">
+          <Grid
+            display="flex"
+            justifyContent="space-evenly"
+            alignItems="center"
+            width="100%"
+            className="comments__block">
+            <Box className="comments__block-left" px="10px" width="40%">
               <textarea
                 name=""
-                id=""
+                id="comments__block-textarea"
                 cols="30"
                 rows="10"
                 value={comment}
                 onChange={e => setComment(e.target.value)}></textarea>
               <Box
+                className="comments__block-mail-btn"
                 display="flex"
-                justifyContent="space-evenly"
                 alignItems="center"
-                width="53%"
+                gap="10px"
+                // width="53%"
                 py="10px">
                 {user.email ? (
-                  <Avatar sx={{ fontSize: "12px" }}>
+                  <Avatar sx={{ fontSize: "12px", backgroundColor: "red" }}>
                     {user.email[0].toUpperCase()}
                   </Avatar>
                 ) : null}
-                {user.email ? <h5>{user.email}</h5> : null}
+                {user.email ? (
+                  <h5 style={{ margin: "0" }}>{user.email}</h5>
+                ) : null}
                 <Button
+                  id="comments__block-left-btn"
                   variant="contained"
                   color="primary"
                   onClick={() => handleAdd()}>
@@ -68,25 +78,35 @@ const Comments = () => {
               </Box>
             </Box>
             <Box
+              className="comments__block-right"
               width="40%"
-              height="100%"
-              border="2px solid black"
-              borderRadius="10px">
+              display="flex"
+              flexDirection="column"
+              gap="10px"
+              pb="10px">
               {comments.length !== 0
                 ? comments.map(elem => (
-                    <Box width="96%" px="10px" py="10px" key={elem.id}>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "5px",
-                        }}>
-                        <Avatar sx={{ fontSize: "12px" }}>
-                          {elem.customer[0]}
-                        </Avatar>
-                        <h4 style={{ margin: "0" }}>{elem.customer}</h4>
-                      </div>
-                      <div style={{ hyphens: "auto" }}>{elem.comment}</div>
+                    <Box
+                      margin="10px"
+                      border="2px solid black"
+                      borderRadius="10px"
+                      key={elem.id}>
+                      <Box width="96%" px="10px" py="10px">
+                        <div
+                          style={
+                            {
+                              // display: "flex",
+                              // alignItems: "center",
+                              // gap: "5px",
+                            }
+                          }>
+                          <Avatar sx={{ fontSize: "12px", bgcolor: "red" }}>
+                            {elem.customer[0].toUpperCase()}
+                          </Avatar>
+                          <h4 style={{ margin: "0" }}>{elem.customer}</h4>
+                        </div>
+                        <div style={{ hyphens: "auto" }}>{elem.comment}</div>
+                      </Box>
                     </Box>
                   ))
                 : null}

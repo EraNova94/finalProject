@@ -1,0 +1,24 @@
+@media all and (max-width: 600px) {
+  .comments__block {
+    flex-direction: column;
+  }
+  .comments__block-left {
+    width: 100%;
+  }
+  #comments__block-textarea {
+    margin: 10px;
+    width: 90%;
+  }
+  .comments__block-mail-btn {
+    display: flex;
+    align-items: "center";
+    gap: 5px;
+  }
+  #comments__block-left-btn {
+    width: 30%;
+    height: 50%;
+  }
+  .comments__block-right {
+    width: 100%;
+  }
+}
